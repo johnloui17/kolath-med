@@ -21,15 +21,14 @@ export function HeroSection() {
           >
             <div className="space-y-6">
               <span className="inline-block px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold uppercase tracking-widest border border-emerald-500/20">
-                Trusted Medical Supplies Since 1990
+                Kerala's 1st ISO Certified Pharmacy
               </span>
               <h1 className="text-6xl lg:text-8xl font-display font-extrabold text-white leading-[0.95] tracking-tighter">
-                Your Health, <br />
-                Our <span className="text-brand-primary">Highest</span> <br />
-                Priority.
+                Trusted medicines, <br />
+                <span className="text-brand-primary italic">delivered with hope.</span>
               </h1>
               <p className="text-xl text-slate-400 leading-relaxed max-w-md italic font-sans">
-                Empowering patients with high-quality clinical equipment and surgical supplies with rapid home delivery across Kochi.
+                For over 30 years, Kolath Medicals in Kadavanthra, Kochi has been the community's pharmacy of choice — specialising in allopathic, oncology, nephrology and orthopaedic care.
               </p>
             </div>
 
@@ -52,6 +51,22 @@ export function HeroSection() {
                   <h3 className="text-white font-bold text-lg uppercase tracking-tight">Working Hours</h3>
                   <p className="text-slate-400">Mon - Sat: 8:00 AM - 10:00 PM<br />Sunday: Emergency Services Available</p>
                 </div>
+              </div>
+            </div>
+
+            {/* Stats row */}
+            <div className="grid grid-cols-3 gap-8 pt-8 border-t border-slate-800/50">
+              <div className="space-y-1">
+                <h4 className="text-3xl font-display font-bold text-brand-primary">30+</h4>
+                <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest leading-tight">Years of<br />service</p>
+              </div>
+              <div className="space-y-1">
+                <h4 className="text-3xl font-display font-bold text-brand-primary">17%</h4>
+                <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest leading-tight">Max<br />discount</p>
+              </div>
+              <div className="space-y-1">
+                <h4 className="text-3xl font-display font-bold text-brand-primary">1st</h4>
+                <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest leading-tight">ISO Pharmacy<br />in Kerala</p>
               </div>
             </div>
 

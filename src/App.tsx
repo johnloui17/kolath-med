@@ -134,12 +134,12 @@ export default function App() {
                   </p>
                   <div className="grid grid-cols-2 gap-12 pt-8">
                     <div className="space-y-2">
-                      <h4 className="text-4xl font-display font-bold text-brand-primary tracking-tighter">30+</h4>
-                      <p className="text-xs text-slate-500 font-bold uppercase tracking-widest">Years of Excellence</p>
+                      <h3 className="text-4xl font-display font-bold text-brand-primary tracking-tighter">30+</h3>
+                      <p className="text-xs text-slate-400 font-bold uppercase tracking-widest">Years of Excellence</p>
                     </div>
                     <div className="space-y-2">
-                      <h4 className="text-4xl font-display font-bold text-brand-primary tracking-tighter">50k+</h4>
-                      <p className="text-xs text-slate-500 font-bold uppercase tracking-widest">Satisfied Patients</p>
+                      <h3 className="text-4xl font-display font-bold text-brand-primary tracking-tighter">50k+</h3>
+                      <p className="text-xs text-slate-400 font-bold uppercase tracking-widest">Satisfied Patients</p>
                     </div>
                   </div>
                 </motion.div>
@@ -204,14 +204,14 @@ export default function App() {
                 Kochi's most trusted healthcare partner with 30 years of excellence. The first ISO pharmacy in Kerala.
               </p>
               <div className="flex gap-5">
-                <SocialIcon icon={<Instagram size={20} />} />
-                <SocialIcon icon={<Facebook size={20} />} />
-                <SocialIcon icon={<Twitter size={20} />} />
+                <SocialIcon icon={<Instagram size={20} />} label="Instagram" />
+                <SocialIcon icon={<Facebook size={20} />} label="Facebook" />
+                <SocialIcon icon={<Twitter size={20} />} label="Twitter" />
               </div>
             </div>
 
             <div>
-              <h4 className="text-sm font-bold text-white uppercase tracking-widest mb-10">Product Range</h4>
+              <h3 className="text-sm font-bold text-white uppercase tracking-widest mb-10">Product Range</h3>
               <ul className="space-y-4">
                 <FooterLink>Surgical Equipment</FooterLink>
                 <FooterLink>Orthopaedic Braces</FooterLink>
@@ -222,7 +222,7 @@ export default function App() {
             </div>
 
             <div>
-              <h4 className="text-sm font-bold text-white uppercase tracking-widest mb-10">Organization</h4>
+              <h3 className="text-sm font-bold text-white uppercase tracking-widest mb-10">Organization</h3>
               <ul className="space-y-4">
                 <FooterLink href="#about">Our Story</FooterLink>
                 <FooterLink href="#departments">Departmental Care</FooterLink>
@@ -233,7 +233,7 @@ export default function App() {
             </div>
 
             <div>
-              <h4 className="text-sm font-bold text-white uppercase tracking-widest mb-10">Contact Portal</h4>
+              <h3 className="text-sm font-bold text-white uppercase tracking-widest mb-10">Contact Portal</h3>
               <ul className="space-y-6">
                 <li className="flex items-start gap-4">
                   <MapPin className="text-brand-primary shrink-0 mt-1" size={20} />
@@ -252,9 +252,9 @@ export default function App() {
           </div>
           
           <div className="pt-10 border-t border-slate-800/50 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="flex flex-col gap-1 items-center md:items-start text-xs text-slate-500 font-bold uppercase tracking-widest text-center md:text-left">
+            <div className="flex flex-col gap-1 items-center md:items-start text-xs text-slate-400 font-bold uppercase tracking-widest text-center md:text-left">
                <span>&copy; {new Date().getFullYear()} KOLATH MEDICALS</span>
-               <span className="text-brand-primary/50">1st ISO Certified Pharmacy in Kerala • License: 21/443/KL/2021</span>
+               <span className="text-brand-primary">1st ISO Certified Pharmacy in Kerala • License: 21/443/KL/2021</span>
             </div>
           </div>
         </div>
@@ -285,17 +285,24 @@ function FeatureCard({ icon, title, description }: { icon: React.ReactNode; titl
 function FooterLink({ children, href = "#" }: { children: React.ReactNode; href?: string }) {
   return (
     <li>
-      <a href={href} className="text-slate-500 text-sm font-bold uppercase tracking-widest hover:text-brand-primary transition-all duration-300 flex items-center group">
-        <span className="w-0 group-hover:w-4 h-0.5 bg-brand-primary mr-0 group-hover:mr-2 transition-all duration-300" />
+      <a 
+        href={href} 
+        className="text-slate-400 text-sm font-bold uppercase tracking-widest hover:text-brand-primary transition-all duration-300 flex items-center group"
+      >
+        <span className="w-0 group-hover:w-4 h-0.5 bg-brand-primary mr-0 group-hover:mr-2 transition-all duration-300" aria-hidden="true" />
         {children}
       </a>
     </li>
   );
 }
 
-function SocialIcon({ icon }: { icon: React.ReactNode }) {
+function SocialIcon({ icon, label }: { icon: React.ReactNode; label: string }) {
   return (
-    <a href="#" className="w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:bg-brand-primary hover:text-slate-950 hover:-translate-y-1 transition-all duration-300 shadow-lg">
+    <a 
+      href="#" 
+      className="w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:bg-brand-primary hover:text-slate-950 hover:-translate-y-1 transition-all duration-300 shadow-lg"
+      aria-label={label}
+    >
       {icon}
     </a>
   );

@@ -151,6 +151,7 @@ export function WhatsAppSticky() {
           transition={{ type: "spring", stiffness: 400, damping: 18, backgroundColor: { duration: 0.5, ease: "easeInOut" } }}
           style={{ backgroundColor: callColor }}
           className="flex-1 inline-flex items-center justify-center gap-2.5 py-4 rounded-2xl text-slate-950 font-black text-sm uppercase tracking-widest shadow-lg relative overflow-hidden group"
+          aria-label="Call Now - Call Kolath Medicals support at +91 9496358682"
         >
           <span className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none" />
           <motion.span
@@ -175,6 +176,7 @@ export function WhatsAppSticky() {
           transition={{ type: "spring", stiffness: 400, damping: 18, backgroundColor: { duration: 0.5, ease: "easeInOut" } }}
           style={{ backgroundColor: waColor }}
           className="flex-1 inline-flex items-center justify-center gap-2.5 py-4 rounded-2xl text-slate-950 font-black text-sm uppercase tracking-widest shadow-lg relative overflow-hidden group"
+          aria-label="WhatsApp - Order medicines via WhatsApp"
         >
           <span className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none" />
           <motion.span
@@ -207,7 +209,7 @@ export function WhatsAppSticky() {
           whileTap={{ scale: 0.88 }}
           transition={{ type: "spring", stiffness: 380, damping: 16 }}
           className="w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-2xl shadow-[#25D366]/30 text-white relative overflow-hidden"
-          aria-label="Contact on WhatsApp"
+          aria-label="WhatsApp - Contact on WhatsApp"
         >
           <motion.span animate={{ scale: [1, 1.6], opacity: [0.5, 0] }} transition={{ duration: 1.8, repeat: Infinity, ease: "easeOut" }} className="absolute inset-0 rounded-full bg-[#25D366]" />
           <motion.span animate={{ scale: [1, 1.8], opacity: [0.3, 0] }} transition={{ duration: 1.8, repeat: Infinity, ease: "easeOut", delay: 0.4 }} className="absolute inset-0 rounded-full bg-[#25D366]" />

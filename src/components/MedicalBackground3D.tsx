@@ -4,7 +4,7 @@ import { Plus } from "lucide-react";
 
 export function MedicalBackground3D() {
   return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none perspective-[1000px]">
+    <div className="absolute inset-0 overflow-hidden pointer-events-none perspective-[1000px]" aria-hidden="true">
       {/* 3D Floating Plus Signs */}
       {[...Array(5)].map((_, i) => (
         <motion.div
@@ -27,7 +27,7 @@ export function MedicalBackground3D() {
             repeat: Infinity,
             ease: "linear"
           }}
-          className="absolute opacity-[0.04] text-brand-primary"
+          className="absolute opacity-[0.04] text-brand-primary will-change-transform"
           style={{ transformStyle: "preserve-3d" }}
         >
           <Plus size={100 + i * 40} strokeWidth={1} />

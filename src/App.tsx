@@ -15,7 +15,7 @@ export default function App() {
   });
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-200 selection:bg-brand-primary selection:text-slate-950 overflow-x-hidden">
+    <div className="min-h-screen bg-slate-950 text-slate-200 selection:bg-brand-primary selection:text-slate-950 overflow-x-hidden pb-24 md:pb-0">
       <NavBar />
       
       <main className="relative">
@@ -59,6 +59,18 @@ export default function App() {
         {/* Feature Section */}
         <section className="py-32 overflow-hidden bg-slate-950">
           <div className="container mx-auto px-6">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center max-w-3xl mx-auto mb-16"
+            >
+              <h2 className="text-4xl font-display font-bold text-white mb-4 italic tracking-tight">Why Choose Kolath Medicals</h2>
+              <p className="text-lg text-slate-400">
+                Three decades of trust backed by quality, speed, and care — every single day.
+              </p>
+            </motion.div>
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <FeatureCard 
                 icon={<ShieldCheck size={32} />}
@@ -78,6 +90,7 @@ export default function App() {
             </div>
           </div>
         </section>
+
 
         {/* About Section */}
         <section id="about" className="py-32 bg-slate-900 border-y border-slate-800">

@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { NavBar } from "./components/NavBar";
 import { HeroSection } from "./components/HeroSection";
 import { DepartmentsSection } from "./components/DepartmentsSection";
+import { IVDripDivider } from "./components/IVDripDivider";
 import { WhatsAppSticky } from "./components/WhatsAppSticky";
 import { DiscountPopup } from "./components/DiscountPopup";
 import { LocationSection } from "./components/LocationSection";
@@ -55,6 +56,8 @@ export default function App() {
         <div className="relative z-10">
           <DepartmentsSection />
         </div>
+
+        <IVDripDivider />
 
         {/* Feature Section */}
         <section className="py-32 overflow-hidden bg-slate-950">

@@ -4,22 +4,22 @@ import { MapPin, Navigation, Clock, Phone } from "lucide-react";
 
 export function LocationSection() {
   return (
-    <section id="location" className="py-24 bg-slate-950 relative overflow-hidden">
+    <section id="location" className="py-24 bg-navy relative overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-primary/10 border border-brand-primary/20 mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gold/10 border border-gold/20 mb-6"
           >
-            <MapPin size={14} className="text-brand-primary" />
-            <span className="text-[10px] font-black text-brand-primary uppercase tracking-[0.3em]">Visit Us</span>
+            <MapPin size={14} className="text-gold" />
+            <span className="text-[10px] font-black text-gold uppercase tracking-[0.3em]">Visit Us</span>
           </motion.div>
           <h2 className="text-4xl lg:text-6xl font-display font-extrabold text-white mb-6 uppercase tracking-tighter">
-            Centrally Located for <span className="text-brand-primary">Your Convenience</span>
+            Centrally Located for <span className="text-gold">Your Convenience</span>
           </h2>
-          <p className="text-slate-400 text-lg sm:text-xl italic">
+          <p className="text-muted-foreground text-lg sm:text-xl italic">
             Find us centrally located at KP Vallon Road. Mon – Sat · 8 AM – 10 PM.
           </p>
         </div>
@@ -32,35 +32,35 @@ export function LocationSection() {
             viewport={{ once: true }}
             className="flex flex-col gap-4"
           >
-            <div className="flex-1 p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm group hover:border-brand-primary/30 transition-colors">
-              <div className="bg-brand-primary/20 w-12 h-12 rounded-2xl flex items-center justify-center mb-6 border border-brand-primary/20">
-                <Navigation size={24} className="text-brand-primary" />
+            <div className="flex-1 p-8 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm group hover:border-gold/30 transition-colors shadow-lg">
+              <div className="bg-gold/20 w-12 h-12 rounded-xl flex items-center justify-center mb-6 border border-gold/20">
+                <Navigation size={24} className="text-gold" />
               </div>
-              <h3 className="text-white font-bold text-xl mb-2">Our Address</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">
+              <h3 className="text-white font-bold text-xl mb-2 font-display">Our Address</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
                 KP Vallon Road, Giri Nagar,<br />
                 Kadavanthra, Kochi,<br />
                 Kerala 682020
               </p>
             </div>
 
-            <div className="flex-1 p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm group hover:border-brand-primary/30 transition-colors">
-              <div className="bg-brand-primary/20 w-12 h-12 rounded-2xl flex items-center justify-center mb-6 border border-brand-primary/20">
-                <Clock size={24} className="text-brand-primary" />
+            <div className="flex-1 p-8 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm group hover:border-gold/30 transition-colors shadow-lg">
+              <div className="bg-gold/20 w-12 h-12 rounded-xl flex items-center justify-center mb-6 border border-gold/20">
+                <Clock size={24} className="text-gold" />
               </div>
-              <h3 className="text-white font-bold text-xl mb-2">Service Hours</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">
+              <h3 className="text-white font-bold text-xl mb-2 font-display">Service Hours</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
                 Mon – Sat: 8:00 AM – 10:00 PM<br />
                 Delivery: 8:00 AM - 10:00 PM
               </p>
             </div>
 
-            <div className="flex-1 p-8 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-sm group hover:border-brand-primary/30 transition-colors">
-              <div className="bg-brand-primary/20 w-12 h-12 rounded-2xl flex items-center justify-center mb-6 border border-brand-primary/20">
-                <Phone size={24} className="text-brand-primary" />
+            <div className="flex-1 p-8 rounded-xl bg-white/5 border border-white/10 backdrop-blur-sm group hover:border-gold/30 transition-colors shadow-lg">
+              <div className="bg-gold/20 w-12 h-12 rounded-xl flex items-center justify-center mb-6 border border-gold/20">
+                <Phone size={24} className="text-gold" />
               </div>
-              <h3 className="text-white font-bold text-xl mb-2">Fast Response</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">
+              <h3 className="text-white font-bold text-xl mb-2 font-display">Fast Response</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">
                 Emergency: +91 94963 58682<br />
                 Support: 0495 231 6882
               </p>
@@ -72,7 +72,7 @@ export function LocationSection() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="lg:col-span-2 h-[400px] lg:h-[750px] rounded-[40px] overflow-hidden border border-white/10 relative shadow-2xl"
+            className="lg:col-span-2 h-[400px] lg:h-[750px] rounded-xl overflow-hidden border border-white/10 relative shadow-2xl"
           >
             <iframe 
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.6553359300283!2d76.29806257695095!3d9.962607090140985!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0872c5e5f449f3%3A0xbec6817e0b298d24!2sKolath%20Medicals!5e0!3m2!1sen!2sin!4v1778747785053!5m2!1sen!2sin" 
@@ -93,7 +93,7 @@ export function LocationSection() {
                 target="_blank"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-brand-primary text-slate-950 font-black text-sm uppercase tracking-widest shadow-2xl"
+                className="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-gold text-navy font-black text-sm uppercase tracking-widest shadow-2xl"
               >
                 <Navigation size={18} />
                 Get Directions
@@ -101,14 +101,14 @@ export function LocationSection() {
             </div>
             
             {/* Overlay Gradient for integration */}
-            <div className="absolute inset-0 pointer-events-none border-[12px] border-slate-950/20 rounded-[40px]" />
+            <div className="absolute inset-0 pointer-events-none border-[12px] border-navy/20 rounded-xl" />
           </motion.div>
         </div>
       </div>
 
       {/* Decorative Orbs */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-brand-primary/5 rounded-full blur-[100px] -translate-x-1/2" />
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-brand-primary/5 rounded-full blur-[120px] translate-x-1/4" />
+      <div className="absolute top-1/2 left-0 w-96 h-96 bg-gold/5 rounded-full blur-[100px] -translate-x-1/2" />
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gold/5 rounded-full blur-[120px] translate-x-1/4" />
     </section>
   );
 }

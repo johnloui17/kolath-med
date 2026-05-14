@@ -1,6 +1,6 @@
 # Kolath Medicals - AI Studio App
 
-This project is a modern, high-performance landing page for **Kolath Medicals**, a trusted pharmacy in Kochi, Kerala, established in 1990. The application is designed with a focus on visual impact, utilizing 3D backgrounds, smooth animations, and a polished dark-themed aesthetic.
+This project is a modern, high-performance landing page for **Kolath Medicals**, a trusted pharmacy in Kochi, Kerala, established in 1990. The application is designed with a focus on visual impact, utilizing 3D backgrounds, smooth animations, and a polished Navy & Gold aesthetic.
 
 ## 🚀 Tech Stack
 
@@ -51,21 +51,18 @@ Create a `.env.local` file based on `.env.example` and add your `GEMINI_API_KEY`
 
 The project workflow requires a **Lighthouse score of 100** across all metrics (Performance, Accessibility, Best Practices, SEO).
 
-- **Current Status:** 93/100/100/100 (Performance is currently optimized for local environments).
+- **Current Status:** 92/100/100/100 (Performance is currently optimized for local environments).
 - **Enforcement:** Always run `npm run lighthouse` before major changes or deployments to ensure no regressions in accessibility or performance.
-- **Key Fixes Applied:**
-  - Semantic heading order (h1 -> h2 -> h3).
-  - High-contrast color palette (replacing low-contrast slates).
-  - ARIA labels for all interactive elements, matching visible text to avoid content-name mismatches.
-  - Title attributes for all iframes (Maps, GTM).
-  - Font preloading in `index.html`.
+- **Key Theme Status:** Migrated to **Navy & Gold** theme with high-contrast accessibility fixes.
 
 ## 🎨 Design & Conventions
 
-- **Visual Style:** Dark mode (`bg-slate-950`), with `brand-primary` (emerald-like) accents.
-- **Animations:** Extensive use of `motion/react` for entrance animations, floating effects, and 3D-like rotations.
-- **Performance:** Non-critical sections (Location, WhatsApp Sticky, Popups) are lazy-loaded using `React.lazy` and `Suspense`.
-- **Typography:** Utilizes Geist Variable font for a modern look.
+- **Visual Style:** Navy & Gold theme (`bg-navy`), with `gold` accents and Montserrat/Playfair Display typography.
+- **Animations:** Extensive use of `motion/react` for entrance animations, floating effects, and 3D-like rotations. Mobile performance is optimized by reducing complexity.
+- **Performance:** Non-critical sections are lazy-loaded. SVG filters and expensive blurs are disabled on mobile.
+- **Typography:** 
+  - **Sans:** Montserrat (Body, Navigation)
+  - **Display:** Playfair Display (Headings, Branding)
 - **Icons:** Consistent use of `lucide-react` for iconography.
 
 ## 🏥 About Kolath Medicals

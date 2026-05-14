@@ -59,7 +59,7 @@ export default function App() {
   ), []);
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-200 selection:bg-brand-primary selection:text-slate-950 overflow-x-hidden pb-24 md:pb-0">
+    <div className="min-h-screen bg-navy text-white selection:bg-gold selection:text-navy overflow-x-hidden pb-24 md:pb-0">
       <NavBar />
       
       <main className="relative">
@@ -78,7 +78,7 @@ export default function App() {
           <IVDripDivider />
 
           {/* Feature Section */}
-          <section className="py-32 overflow-hidden bg-slate-950">
+          <section className="py-32 overflow-hidden bg-navy">
             <div className="container mx-auto px-6">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -87,7 +87,7 @@ export default function App() {
                 className="text-center max-w-3xl mx-auto mb-16"
               >
                 <h2 className="text-4xl font-display font-bold text-white mb-4 italic tracking-tight">Why Choose Kolath Medicals</h2>
-                <p className="text-lg text-slate-400">
+                <p className="text-lg text-muted-foreground">
                   Three decades of trust backed by quality, speed, and care — every single day.
                 </p>
               </motion.div>
@@ -114,7 +114,7 @@ export default function App() {
 
 
           {/* About Section */}
-          <section id="about" className="py-32 bg-slate-900 border-y border-slate-800">
+          <section id="about" className="py-32 bg-navy-mid border-y border-navy-light">
             <div className="container mx-auto px-6">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                 <motion.div
@@ -125,21 +125,21 @@ export default function App() {
                 >
                   <div className="space-y-4">
                     <h2 className="text-4xl lg:text-6xl font-display font-bold text-white tracking-tighter">Trusted Name in Kochi Since 1990</h2>
-                    <p className="text-slate-400 text-lg leading-relaxed italic">
+                    <p className="text-muted-foreground text-lg leading-relaxed italic">
                       Kolath Medicals has been a pillar of the Kadavanthra community for over three decades. Our mission is to serve patients by providing quality medicines at a reasonable cost.
                     </p>
                   </div>
-                  <p className="text-slate-400 text-lg leading-relaxed">
+                  <p className="text-muted-foreground text-lg leading-relaxed">
                     With a wide selection of orthopaedic equipment, diabetic care, and mother & baby care, we are a one-stop-shop for your family's health requirements.
                   </p>
                   <div className="grid grid-cols-2 gap-12 pt-8">
                     <div className="space-y-2">
-                      <h3 className="text-4xl font-display font-bold text-brand-primary tracking-tighter">30+</h3>
-                      <p className="text-xs text-slate-400 font-bold uppercase tracking-widest">Years of Excellence</p>
+                      <h3 className="text-4xl font-display font-bold text-gold tracking-tighter">30+</h3>
+                      <p className="text-xs text-muted-foreground font-bold uppercase tracking-widest">Years of Excellence</p>
                     </div>
                     <div className="space-y-2">
-                      <h3 className="text-4xl font-display font-bold text-brand-primary tracking-tighter">50k+</h3>
-                      <p className="text-xs text-slate-400 font-bold uppercase tracking-widest">Satisfied Patients</p>
+                      <h3 className="text-4xl font-display font-bold text-gold tracking-tighter">50k+</h3>
+                      <p className="text-xs text-muted-foreground font-bold uppercase tracking-widest">Satisfied Patients</p>
                     </div>
                   </div>
                 </motion.div>
@@ -149,21 +149,21 @@ export default function App() {
                   viewport={{ once: true }}
                   className="relative flex justify-center"
                 >
-                  <div className="w-[400px] h-[400px] rounded-[60px] bg-emerald-500/5 border border-emerald-500/10 flex items-center justify-center relative group">
+                  <div className="w-[400px] h-[400px] rounded-xl bg-gold/5 border border-gold/10 flex items-center justify-center relative group">
                     <AnimatedLogo3D />
                   </div>
                   {/* Decorative glow */}
-                  <div className="absolute -z-10 w-64 h-64 bg-brand-primary/10 rounded-full blur-[100px] -top-10 -right-10" />
+                  <div className="absolute -z-10 w-64 h-64 bg-gold/10 rounded-full blur-[100px] -top-10 -right-10" />
                 </motion.div>
               </div>
             </div>
           </section>
 
           {/* Contact CTA Section */}
-          <section id="contact" className="py-32 bg-slate-950">
+          <section id="contact" className="py-32 bg-navy">
             <div className="container mx-auto px-6 text-center max-w-4xl">
-              <h2 className="text-4xl lg:text-6xl font-display font-extrabold text-white mb-8 tracking-tighter uppercase leading-tight">Need Medicines <span className="text-brand-primary">Immediately?</span></h2>
-              <p className="text-xl text-slate-400 mb-12 leading-relaxed max-w-2xl mx-auto italic font-sans">
+              <h2 className="text-4xl lg:text-6xl font-display font-extrabold text-white mb-8 tracking-tighter uppercase leading-tight">Need Medicines <span className="text-gold">Immediately?</span></h2>
+              <p className="text-xl text-muted-foreground mb-12 leading-relaxed max-w-2xl mx-auto italic font-sans">
                 Our specialized pharmaceutical care and delivery team are here for you Mon – Sat · 8 AM – 10 PM. Reach out via WhatsApp or call us directly.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
@@ -171,14 +171,14 @@ export default function App() {
                   whileHover={{ y: -5 }}
                   href="https://wa.me/919496358682" 
                   target="_blank"
-                  className="bg-[#25D366] hover:bg-[#20bd5a] text-slate-950 px-12 py-5 rounded-2xl font-black text-xl shadow-2xl shadow-[#25D366]/20 transition-all uppercase tracking-widest"
+                  className="bg-[#25D366] hover:bg-[#20bd5a] text-navy px-12 py-5 rounded-2xl font-black text-xl shadow-2xl shadow-[#25D366]/20 transition-all uppercase tracking-widest"
                 >
                   WhatsApp Us
                 </motion.a>
                 <motion.a 
                   whileHover={{ y: -5 }}
                   href="tel:+919496358682" 
-                  className="bg-white hover:bg-slate-100 text-slate-950 px-12 py-5 rounded-2xl font-black text-xl shadow-2xl transition-all uppercase tracking-widest"
+                  className="bg-white hover:bg-slate-100 text-navy px-12 py-5 rounded-2xl font-black text-xl shadow-2xl transition-all uppercase tracking-widest"
                 >
                   Call Support
                 </motion.a>
@@ -190,17 +190,17 @@ export default function App() {
         </Suspense>
       </main>
 
-      <footer className="bg-slate-950 pt-32 pb-12 border-t border-slate-800/50">
+      <footer className="bg-navy pt-32 pb-12 border-t border-navy-light/50">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
             <div className="space-y-8">
               <div className="flex items-center gap-3">
-                <div className="bg-brand-primary p-2 rounded-xl">
-                  <PlusIcon className="text-slate-950 w-6 h-6" />
+                <div className="bg-gold p-2 rounded-xl">
+                  <PlusIcon className="text-navy w-6 h-6" />
                 </div>
-                <span className="text-2xl font-display font-bold text-white tracking-tighter uppercase mr-2">Kolath <span className="text-brand-primary">Medicals</span></span>
+                <span className="text-2xl font-display font-bold text-white tracking-tighter uppercase mr-2">Kolath <span className="text-gold">Medicals</span></span>
               </div>
-              <p className="text-slate-400 leading-relaxed font-medium italic">
+              <p className="text-muted-foreground leading-relaxed font-medium italic">
                 Kochi's most trusted healthcare partner with 30 years of excellence. The first ISO pharmacy in Kerala.
               </p>
               <div className="flex gap-5">
@@ -236,25 +236,25 @@ export default function App() {
               <h3 className="text-sm font-bold text-white uppercase tracking-widest mb-10">Contact Portal</h3>
               <ul className="space-y-6">
                 <li className="flex items-start gap-4">
-                  <MapPin className="text-brand-primary shrink-0 mt-1" size={20} />
-                  <span className="text-slate-400 text-sm font-medium leading-relaxed">KP Vallon Rd, Giri Nagar, Kadavanthra, Kochi, Kerala 682020</span>
+                  <MapPin className="text-gold shrink-0 mt-1" size={20} />
+                  <span className="text-muted-foreground text-sm font-medium leading-relaxed">KP Vallon Rd, Giri Nagar, Kadavanthra, Kochi, Kerala 682020</span>
                 </li>
                 <li className="flex items-center gap-4">
-                  <Phone className="text-brand-primary shrink-0" size={20} />
-                  <span className="text-slate-400 text-sm font-bold">+91 9496358682</span>
+                  <Phone className="text-gold shrink-0" size={20} />
+                  <span className="text-muted-foreground text-sm font-bold">+91 9496358682</span>
                 </li>
                 <li className="flex items-center gap-4">
-                  <Mail className="text-brand-primary shrink-0" size={20} />
-                  <span className="text-slate-400 text-sm font-medium">info@kolathmedicals.com</span>
+                  <Mail className="text-gold shrink-0" size={20} />
+                  <span className="text-muted-foreground text-sm font-medium">info@kolathmedicals.com</span>
                 </li>
               </ul>
             </div>
           </div>
           
-          <div className="pt-10 border-t border-slate-800/50 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div className="flex flex-col gap-1 items-center md:items-start text-xs text-slate-400 font-bold uppercase tracking-widest text-center md:text-left">
+          <div className="pt-10 border-t border-navy-light/50 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="flex flex-col gap-1 items-center md:items-start text-xs text-muted-foreground font-bold uppercase tracking-widest text-center md:text-left">
                <span>&copy; {new Date().getFullYear()} KOLATH MEDICALS</span>
-               <span className="text-brand-primary">1st ISO Certified Pharmacy in Kerala • License: 21/443/KL/2021</span>
+               <span className="text-gold/80">1st ISO Certified Pharmacy in Kerala • License: 21/443/KL/2021</span>
             </div>
           </div>
         </div>

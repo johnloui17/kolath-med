@@ -37,11 +37,11 @@ const departments = [
 
 export function DepartmentsSection() {
   return (
-    <section id="departments" className="py-24 bg-slate-900/50">
+    <section id="departments" className="py-24 bg-navy-mid/50">
       <div className="container mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-4xl font-display font-bold text-white mb-4 italic tracking-tight">Our Specialized Departments</h2>
-          <p className="text-lg text-slate-400">
+          <p className="text-lg text-muted-foreground">
             We offer a wide range of specialized healthcare categories to meet every family's medical needs.
           </p>
         </div>
@@ -54,13 +54,13 @@ export function DepartmentsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="bg-slate-900 p-10 rounded-[40px] shadow-2xl border border-slate-800 hover:border-brand-primary/30 hover:-translate-y-2 transition-all duration-500 group"
+                className="bg-navy-card p-10 rounded-xl shadow-2xl border border-white/5 hover:border-gold/30 hover:-translate-y-2 transition-all duration-500 group"
               >
-                <div className="bg-emerald-500/10 w-16 h-16 rounded-[24px] flex items-center justify-center text-brand-primary mb-8 group-hover:bg-brand-primary group-hover:text-slate-950 transition-colors duration-500">
+                <div className="bg-gold/10 w-16 h-16 rounded-xl flex items-center justify-center text-gold mb-8 group-hover:bg-gold group-hover:text-navy transition-colors duration-500">
                   <dept.icon size={32} />
                 </div>
-                <h3 className="text-2xl font-display font-bold text-white mb-4 group-hover:text-brand-primary transition-colors">{dept.name}</h3>
-                <p className="text-slate-400 leading-relaxed italic">{dept.description}</p>
+                <h3 className="text-2xl font-display font-bold text-white mb-4 group-hover:text-gold transition-colors">{dept.name}</h3>
+                <p className="text-muted-foreground leading-relaxed italic">{dept.description}</p>
               </motion.div>
 
               {index === 3 && (
@@ -75,7 +75,7 @@ export function DepartmentsSection() {
                   viewport={{ once: true }}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="md:hidden inline-flex items-center justify-center gap-3 w-full px-8 py-4 rounded-2xl bg-[#25D366] text-slate-950 font-black text-sm uppercase tracking-widest shadow-xl shadow-[#25D366]/20 group"
+                  className="md:hidden inline-flex items-center justify-center gap-3 w-full px-8 py-4 rounded-xl bg-[#25D366] text-navy font-black text-sm uppercase tracking-widest shadow-xl shadow-[#25D366]/20 group"
                   aria-label="Chat on WhatsApp - Order medicines via WhatsApp"
                 >
                   <svg

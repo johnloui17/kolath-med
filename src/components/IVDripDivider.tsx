@@ -33,7 +33,7 @@ export function IVDripDivider() {
       {/* Ambient glow */}
       <motion.div
         style={{ opacity: glowOpacity }}
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-48 rounded-full blur-[80px] bg-emerald-500/20 pointer-events-none"
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-48 rounded-full blur-[80px] bg-gold/20 pointer-events-none"
       />
 
       <svg
@@ -45,13 +45,13 @@ export function IVDripDivider() {
       >
         <defs>
           <linearGradient id="ivLiquid" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#10b981" stopOpacity="0.55" />
+            <stop offset="0%" stopColor="#c9a050" stopOpacity="0.55" />
             <stop offset="100%" stopColor="#34d399" stopOpacity="0.2" />
           </linearGradient>
           <linearGradient id="ivTube" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#10b981" stopOpacity="0.95" />
-            <stop offset="70%" stopColor="#10b981" stopOpacity="0.5" />
-            <stop offset="100%" stopColor="#10b981" stopOpacity="0.15" />
+            <stop offset="0%" stopColor="#c9a050" stopOpacity="0.95" />
+            <stop offset="70%" stopColor="#c9a050" stopOpacity="0.5" />
+            <stop offset="100%" stopColor="#c9a050" stopOpacity="0.15" />
           </linearGradient>
           <filter id="ivGlow">
             <feGaussianBlur stdDeviation="2.5" result="blur" />
@@ -63,13 +63,13 @@ export function IVDripDivider() {
         </defs>
 
         {/* ── Hook ── */}
-        <path d="M 46 5 Q 60 1 74 5" stroke="#10b981" strokeWidth="2" strokeOpacity="0.7" fill="none" strokeLinecap="round" />
-        <line x1="60" y1="4" x2="60" y2="17" stroke="#10b981" strokeWidth="2" strokeOpacity="0.65" />
+        <path d="M 46 5 Q 60 1 74 5" stroke="#c9a050" strokeWidth="2" strokeOpacity="0.7" fill="none" strokeLinecap="round" />
+        <line x1="60" y1="4" x2="60" y2="17" stroke="#c9a050" strokeWidth="2" strokeOpacity="0.65" />
 
         {/* ── Bag body ── */}
         <rect x="14" y="17" width="92" height="100" rx="16"
           fill="rgba(16,185,129,0.04)"
-          stroke="#10b981" strokeWidth="1.5" strokeOpacity="0.5"
+          stroke="#c9a050" strokeWidth="1.5" strokeOpacity="0.5"
         />
         {/* Shine */}
         <rect x="17" y="20" width="28" height="92" rx="10" fill="rgba(255,255,255,0.025)" />
@@ -82,21 +82,21 @@ export function IVDripDivider() {
         />
 
         {/* Label lines */}
-        <line x1="24" y1="35" x2="96" y2="35" stroke="#10b981" strokeWidth="0.8" strokeOpacity="0.2" />
-        <line x1="24" y1="42" x2="86" y2="42" stroke="#10b981" strokeWidth="0.8" strokeOpacity="0.14" />
-        <line x1="24" y1="49" x2="76" y2="49" stroke="#10b981" strokeWidth="0.8" strokeOpacity="0.09" />
+        <line x1="24" y1="35" x2="96" y2="35" stroke="#c9a050" strokeWidth="0.8" strokeOpacity="0.2" />
+        <line x1="24" y1="42" x2="86" y2="42" stroke="#c9a050" strokeWidth="0.8" strokeOpacity="0.14" />
+        <line x1="24" y1="49" x2="76" y2="49" stroke="#c9a050" strokeWidth="0.8" strokeOpacity="0.09" />
 
         {/* ── Port / nozzle ── */}
         <rect x="52" y="117" width="16" height="13" rx="3.5"
           fill="rgba(16,185,129,0.18)"
-          stroke="#10b981" strokeWidth="1.3" strokeOpacity="0.65"
+          stroke="#c9a050" strokeWidth="1.3" strokeOpacity="0.65"
         />
-        <line x1="60" y1="130" x2="60" y2="138" stroke="#10b981" strokeWidth="2.5" strokeOpacity="0.6" />
+        <line x1="60" y1="130" x2="60" y2="138" stroke="#c9a050" strokeWidth="2.5" strokeOpacity="0.6" />
 
         {/* ── Drip chamber ── */}
         <rect x="47" y="138" width="26" height="42" rx="8"
           fill="rgba(16,185,129,0.05)"
-          stroke="#10b981" strokeWidth="1.2" strokeOpacity="0.45"
+          stroke="#c9a050" strokeWidth="1.2" strokeOpacity="0.45"
         />
 
         {/* Fast liquid drops inside drip chamber — 5 staggered drops */}
@@ -106,7 +106,7 @@ export function IVDripDivider() {
             cx="60"
             rx={i % 2 === 0 ? 2.8 : 2.2}
             ry={i % 2 === 0 ? 4.5 : 3.5}
-            fill="#10b981"
+            fill="#c9a050"
             filter="url(#ivGlow)"
             animate={{
               cy:      [143, 174],
@@ -124,12 +124,12 @@ export function IVDripDivider() {
         ))}
 
         {/* ── Connector ── */}
-        <line x1="60" y1="180" x2="60" y2="190" stroke="#10b981" strokeWidth="2.5" strokeOpacity="0.6" />
+        <line x1="60" y1="180" x2="60" y2="190" stroke="#c9a050" strokeWidth="2.5" strokeOpacity="0.6" />
 
         {/* Ghost track — curvy, solid, faint */}
         <path
           d="M 60 190 C 30 250, 90 310, 60 430"
-          stroke="#10b981" strokeWidth="2" strokeOpacity="0.15"
+          stroke="#c9a050" strokeWidth="2" strokeOpacity="0.15"
           fill="none" strokeLinecap="round"
         />
 

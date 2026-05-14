@@ -99,9 +99,9 @@ export function MedicalBackground3D() {
             className="flex items-center gap-8"
             style={{ transformStyle: "preserve-3d" }}
           >
-            <div className="w-3 h-3 bg-brand-primary rounded-full shadow-[0_0_10px_#10b981]" />
+            <div className="w-3 h-3 bg-brand-primary rounded-full shadow-[0_0_10px_#c9a050]" />
             <div className="h-[1px] w-12 bg-gradient-to-r from-brand-primary to-transparent" />
-            <div className="w-3 h-3 bg-brand-primary/50 rounded-full shadow-[0_0_10px_#10b981]" />
+            <div className="w-3 h-3 bg-brand-primary/50 rounded-full shadow-[0_0_10px_#c9a050]" />
           </motion.div>
         ))}
       </div>
@@ -110,7 +110,7 @@ export function MedicalBackground3D() {
       <div 
         className="absolute inset-0 opacity-[0.05]"
         style={{
-          backgroundImage: `linear-gradient(to right, #10b981 1px, transparent 1px), linear-gradient(to bottom, #10b981 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(to right, #c9a050 1px, transparent 1px), linear-gradient(to bottom, #c9a050 1px, transparent 1px)`,
           backgroundSize: '80px 80px',
           transform: 'rotateX(60deg) translateY(-200px) translateZ(-400px)',
           transformOrigin: 'top center',
@@ -147,7 +147,7 @@ export function MedicalBackground3D() {
           <motion.path
             d="M 0 50 L 100 50 L 110 50 L 120 40 L 130 50 L 150 50 L 160 10 L 175 90 L 190 50 L 220 50 L 240 30 L 260 50 L 1000 50"
             fill="transparent"
-            stroke="#10b981"
+            stroke="#c9a050"
             strokeWidth="2"
             initial={{ pathLength: 0, opacity: 0 }}
             animate={{ 
@@ -164,7 +164,7 @@ export function MedicalBackground3D() {
           {/* Glowing Pulse Head */}
           <motion.circle
             r="3"
-            fill="#10b981"
+            fill="#c9a050"
             filter="blur(4px)"
             animate={{
               offsetDistance: ["0%", "100%"],
@@ -185,7 +185,7 @@ export function MedicalBackground3D() {
           <motion.path
             d="M 0 50 L 150 50 L 160 45 L 170 50 L 190 50 L 200 0 L 215 100 L 230 50 L 260 50 L 280 20 L 300 50 L 1000 50"
             fill="transparent"
-            stroke="#10b981"
+            stroke="#c9a050"
             strokeWidth="1"
             initial={{ pathLength: 0, opacity: 0 }}
             animate={{ 

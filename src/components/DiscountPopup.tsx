@@ -44,7 +44,8 @@ export function DiscountPopup() {
             >
               <button 
                 onClick={closePopup}
-                className="absolute top-6 right-6 text-slate-500 hover:text-white transition-colors z-20 bg-slate-800/50 p-2 rounded-full"
+                className="absolute top-6 right-6 text-slate-400 hover:text-white transition-colors z-20 bg-slate-800/50 p-2 rounded-full"
+                aria-label="Close discount popup"
               >
                 <X size={20} />
               </button>
@@ -64,7 +65,7 @@ export function DiscountPopup() {
               <div className="grid grid-cols-2">
                 <div className="p-8 border-r border-slate-800/50 space-y-4">
                   <div className="space-y-1">
-                    <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Always • Everyone</p>
+                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Always • Everyone</p>
                     <div className="flex items-baseline gap-1">
                       <span className="text-6xl font-display font-black text-brand-primary tracking-tighter">15%</span>
                     </div>
@@ -77,7 +78,7 @@ export function DiscountPopup() {
 
                 <div className="p-8 space-y-4 bg-brand-primary/[0.02]">
                   <div className="space-y-1">
-                    <p className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Plan Ahead</p>
+                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Plan Ahead</p>
                     <div className="flex items-baseline gap-1">
                       <span className="text-6xl font-display font-black text-brand-primary tracking-tighter">17%</span>
                     </div>
@@ -114,8 +115,8 @@ export function DiscountPopup() {
                 </div>
                 
                 <div className="flex items-center justify-center gap-2 opacity-50">
-                  <ShieldCheck size={12} className="text-slate-500" />
-                  <span className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em]">Effective pricing policy • Transparent • Fair</span>
+                  <ShieldCheck size={12} className="text-slate-400" />
+                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">Effective pricing policy • Transparent • Fair</span>
                 </div>
               </div>
 

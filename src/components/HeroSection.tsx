@@ -65,7 +65,7 @@ export function HeroSection() {
                   <div className="space-y-2">
                     <p className="text-[11px] font-black text-brand-primary uppercase tracking-[0.2em]">Our Central Location</p>
                     <p className="text-lg text-slate-200 font-medium leading-snug">KP Vallon Road, Kadavanthra, Kochi, Kerala 682020</p>
-                    <div className="flex items-center gap-2 text-[10px] text-slate-500 font-bold uppercase tracking-widest">
+                    <div className="flex items-center gap-2 text-[10px] text-slate-400 font-bold uppercase tracking-widest">
                       <span>Get Directions</span>
                       <div className="w-1 h-1 bg-slate-700 rounded-full" />
                       <span>Open 8 AM - 10 PM</span>
@@ -81,8 +81,9 @@ export function HeroSection() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-brand-primary text-slate-950 font-black text-sm uppercase tracking-widest shadow-xl shadow-brand-primary/20 group w-full sm:w-auto"
+                aria-label="Call Now - Call Kolath Medicals support at +91 9496358682"
               >
-                <Phone size={18} className="group-hover:rotate-12 transition-transform" />
+                <Phone size={18} className="group-hover:rotate-12 transition-transform" aria-hidden="true" />
                 Call Now
               </motion.a>
               
@@ -90,8 +91,9 @@ export function HeroSection() {
                 href="#location"
                 whileHover={{ scale: 1.02 }}
                 className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-white/5 border border-white/10 text-white font-black text-sm uppercase tracking-widest hover:bg-white/10 transition-colors group w-full sm:w-auto"
+                aria-label="View Map - View our location on the map"
               >
-                <Map size={18} className="group-hover:scale-110 transition-transform" />
+                <Map size={18} className="group-hover:scale-110 transition-transform" aria-hidden="true" />
                 View Map
               </motion.a>
             </div>

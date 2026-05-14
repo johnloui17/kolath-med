@@ -32,8 +32,13 @@ export function NavBar() {
         </div>
 
         {/* Mobile Toggle */}
-        <button className="md:hidden text-white" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
+        <button 
+          className="md:hidden text-white p-2" 
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label={isOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isOpen}
+        >
+          {isOpen ? <X size={28} aria-hidden="true" /> : <Menu size={28} aria-hidden="true" />}
         </button>
       </div>
 
@@ -43,6 +48,7 @@ export function NavBar() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           className="md:hidden absolute top-full left-0 right-0 bg-slate-950 border-b border-white/5 p-6 space-y-6"
+          role="menu"
         >
           <MobileNavLink href="#about" onClick={() => setIsOpen(false)}>About</MobileNavLink>
           <MobileNavLink href="#departments" onClick={() => setIsOpen(false)}>Departments</MobileNavLink>
@@ -50,7 +56,9 @@ export function NavBar() {
           <a
             href="https://wa.me/919496358682"
             target="_blank"
+            rel="noopener noreferrer"
             className="block w-full bg-brand-primary text-slate-950 text-center py-4 rounded-xl font-bold"
+            aria-label="Order via WhatsApp - Contact medicines via WhatsApp"
           >
             Order via WhatsApp
           </a>

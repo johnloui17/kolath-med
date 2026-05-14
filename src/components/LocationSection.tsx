@@ -83,6 +83,7 @@ export function LocationSection() {
               loading="lazy" 
               referrerPolicy="no-referrer-when-downgrade"
               className="grayscale-[20%] contrast-[110%] opacity-80 hover:opacity-100 transition-opacity"
+              title="Kolath Medicals Location Map"
             ></iframe>
             
             {/* Overlay Action Button */}

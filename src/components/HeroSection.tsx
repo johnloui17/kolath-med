@@ -1,93 +1,111 @@
-import { LeadForm } from "./LeadForm";
-import { MapPin, Phone, Clock, ShieldCheck } from "lucide-react";
+import React from "react";
 import { motion } from "motion/react";
-import { Badge } from "@/components/ui/badge";
+import { Star, Phone, ShieldCheck } from "lucide-react";
+import { LeadForm } from "./LeadForm";
+
+import { MedicalBackground3D } from "./MedicalBackground3D";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[90vh] flex items-center pt-24 pb-12 overflow-hidden bg-slate-950">
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 -z-10 w-1/2 h-full bg-emerald-500/5 rounded-l-[200px] hidden lg:block" />
-      <div className="absolute -top-24 -left-24 -z-10 w-96 h-96 bg-brand-primary/10 rounded-full blur-[120px]" />
+    <section className="relative min-h-[90vh] flex items-center pt-24 pb-16 overflow-hidden bg-slate-950">
+      <MedicalBackground3D />
       
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left Side: Info */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="space-y-8"
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="space-y-10"
           >
             <div className="space-y-6">
-              <span className="inline-block px-4 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-bold uppercase tracking-widest border border-emerald-500/20">
-                Kerala's 1st ISO Certified Pharmacy
-              </span>
-              <h1 className="text-6xl lg:text-8xl font-display font-extrabold text-white leading-[0.95] tracking-tighter">
-                Trusted medicines, <br />
-                <span className="text-brand-primary italic">delivered with hope.</span>
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="flex flex-col sm:flex-row items-start sm:items-center gap-4"
+              >
+                <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-brand-primary/[0.08] border border-brand-primary/30 backdrop-blur-md relative overflow-hidden group shadow-[0_0_20px_rgba(16,185,129,0.1)]">
+                  <Star size={14} className="fill-brand-primary text-brand-primary animate-pulse" />
+                  <span className="text-[11px] font-black text-brand-primary uppercase tracking-[0.25em]">
+                    Trusted for 30+ Years
+                  </span>
+                </div>
+                
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
+                  <ShieldCheck size={14} className="text-brand-primary" />
+                  <span className="text-[10px] font-bold text-white uppercase tracking-widest">
+                    1st ISO Pharmacy in Kerala
+                  </span>
+                </div>
+              </motion.div>
+              
+              <h1 className="text-6xl lg:text-8xl font-display font-extrabold text-white leading-[0.9] tracking-tighter">
+                Premium <br />
+                Healthcare, <br />
+                <span className="text-brand-primary italic">Right at Home.</span>
               </h1>
-              <p className="text-xl text-slate-400 leading-relaxed max-w-md italic font-sans">
-                For over 30 years, Kolath Medicals in Kadavanthra, Kochi has been the community's pharmacy of choice — specialising in allopathic, oncology, nephrology and orthopaedic care.
-              </p>
-            </div>
-
-            <div className="space-y-6 pt-4">
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-brand-primary">
-                  <MapPin size={24} />
-                </div>
-                <div>
-                  <h3 className="text-white font-bold text-lg uppercase tracking-tight">Store Location</h3>
-                  <p className="text-slate-400">KP Vallon Rd, Giri Nagar, Kadavanthra, Kochi, Kerala 682020</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 text-brand-primary">
-                  <Clock size={24} />
-                </div>
-                <div>
-                  <h3 className="text-white font-bold text-lg uppercase tracking-tight">Working Hours</h3>
-                  <p className="text-slate-400">Mon - Sat: 8:00 AM - 10:00 PM<br />Sunday: Emergency Services Available</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Stats row */}
-            <div className="grid grid-cols-3 gap-8 pt-8 border-t border-slate-800/50">
-              <div className="space-y-1">
-                <h4 className="text-3xl font-display font-bold text-brand-primary">30+</h4>
-                <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest leading-tight">Years of<br />service</p>
-              </div>
-              <div className="space-y-1">
-                <h4 className="text-3xl font-display font-bold text-brand-primary">17%</h4>
-                <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest leading-tight">Max<br />discount</p>
-              </div>
-              <div className="space-y-1">
-                <h4 className="text-3xl font-display font-bold text-brand-primary">1st</h4>
-                <p className="text-[10px] text-slate-500 font-bold uppercase tracking-widest leading-tight">ISO Pharmacy<br />in Kerala</p>
+              
+              <div className="space-y-8">
+                <p className="text-xl lg:text-2xl text-slate-400 max-w-2xl leading-relaxed font-sans italic">
+                  Authorized pharmaceuticals, specialized medical equipment, and doorstep delivery with <span className="text-white font-bold not-italic">Flat 15-17% Discounts</span> daily.
+                </p>
+                
+                <motion.a 
+                  href="https://www.google.com/maps/dir//Kolath+Medicals,+KP+Vallon+Rd,+Giri+Nagar,+Kadavanthra,+Kochi,+Ernakulam,+Kerala+682020/@9.9823468,76.2940103,17z"
+                  target="_blank"
+                  whileHover={{ scale: 1.02, backgroundColor: "rgba(255, 255, 255, 0.08)" }}
+                  className="flex items-start gap-4 p-6 rounded-3xl bg-white/5 border border-white/10 max-w-2xl cursor-pointer transition-colors group/loc"
+                >
+                  <div className="bg-brand-primary/20 p-3 rounded-2xl group-hover/loc:bg-brand-primary/30 transition-colors">
+                    <Star size={20} className="text-brand-primary" />
+                  </div>
+                  <div className="space-y-2">
+                    <p className="text-[11px] font-black text-brand-primary uppercase tracking-[0.2em]">Our Central Location</p>
+                    <p className="text-lg text-slate-200 font-medium leading-snug">KP Vallon Road, Kadavanthra, Kochi, Kerala 682020</p>
+                    <div className="flex items-center gap-2 text-[10px] text-slate-500 font-bold uppercase tracking-widest">
+                      <span>Get Directions</span>
+                      <div className="w-1 h-1 bg-slate-700 rounded-full" />
+                      <span>Open 8 AM - 10 PM</span>
+                    </div>
+                  </div>
+                </motion.a>
               </div>
             </div>
 
-            <div className="flex flex-wrap gap-6 pt-6">
-              <div className="flex items-center gap-2 text-sm text-slate-400 font-medium">
-                <ShieldCheck className="text-brand-primary w-5 h-5" />
-                <span>Drug License: 21/443/KL/2021</span>
-              </div>
-              <div className="flex items-center gap-2 text-sm text-slate-400 font-medium">
-                <ShieldCheck className="text-brand-primary w-5 h-5" />
-                <span>ISO 9001:2015 Certified</span>
-              </div>
+            <div className="flex flex-wrap items-center gap-4 pt-4">
+              <motion.a 
+                href="tel:+919496358682"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-brand-primary text-slate-950 font-black text-sm uppercase tracking-widest shadow-xl shadow-brand-primary/20 group"
+              >
+                <Phone size={18} className="group-hover:rotate-12 transition-transform" />
+                Call Now
+              </motion.a>
+              
+              <motion.a 
+                href="#location"
+                whileHover={{ scale: 1.02 }}
+                className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-white/5 border border-white/10 text-white font-black text-sm uppercase tracking-widest hover:bg-white/10 transition-colors"
+              >
+                View Map
+              </motion.a>
             </div>
           </motion.div>
 
-          {/* Right Side: Form */}
-          <div className="lg:pl-8 flex justify-end">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.3 }}
+            className="flex justify-center lg:justify-end"
+          >
             <LeadForm />
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
   );
 }
+
+

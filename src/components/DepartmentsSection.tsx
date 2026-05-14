@@ -1,26 +1,36 @@
 import { motion } from "motion/react";
-import { Pill, ShieldAlert, Activity, HeartPulse } from "lucide-react";
+import { Pill, Baby, HeartPulse, Accessibility, Sparkles, Footprints } from "lucide-react";
 
 const departments = [
   {
-    name: "Allopathic Medicines",
-    description: "Full range of prescription & OTC medicines sourced from authorised distributors.",
+    name: "General Medicines",
+    description: "Prescription and OTC medicines from top brands.",
     icon: Pill,
   },
   {
-    name: "Oncology",
-    description: "Specialised cancer-care medicines with cold-chain handling and verified sourcing.",
-    icon: ShieldAlert,
+    name: "Orthopaedic Products",
+    description: "Belts, braces, and mobility aids for recovery.",
+    icon: Footprints,
   },
   {
-    name: "Nephrology",
-    description: "Dialysis & kidney-care medicines, often pre-ordered with quick availability.",
-    icon: Activity,
+    name: "Mother & Baby Care",
+    description: "Essential care products for mothers and infants.",
+    icon: Baby,
   },
   {
-    name: "Ortho Products",
-    description: "Braces, supports, mobility aids and orthopaedic consumables.",
+    name: "Diabetic Care",
+    description: "Monitors, strips, and supplements for diabetes.",
     icon: HeartPulse,
+  },
+  {
+    name: "Personal Care",
+    description: "Skin care, hair care, and hygiene solutions.",
+    icon: Sparkles,
+  },
+  {
+    name: "Mobility Aids",
+    description: "Wheelchairs, walkers, and support equipment.",
+    icon: Accessibility,
   },
 ];
 

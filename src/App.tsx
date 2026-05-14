@@ -4,6 +4,8 @@ import { HeroSection } from "./components/HeroSection";
 import { IVDripDivider } from "./components/IVDripDivider";
 import { motion, useInView, AnimatePresence } from "motion/react";
 import { ShieldCheck, Truck, Clock, Phone, MapPin, Mail, Instagram, Facebook, Twitter } from "lucide-react";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 // Lazy load non-critical components
 const DepartmentsSection = lazy(() => import("./components/DepartmentsSection").then(m => ({ default: m.DepartmentsSection })));
@@ -14,7 +16,7 @@ const DiscountPopup = lazy(() => import("./components/DiscountPopup").then(m => 
 // Loading fallback components
 const SectionLoader = () => (
   <div className="w-full h-96 flex items-center justify-center bg-slate-950">
-    <motion.div 
+    <motion.div
       animate={{ rotate: 360 }}
       transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
       className="w-10 h-10 border-4 border-brand-primary/20 border-t-brand-primary rounded-full"
@@ -33,8 +35,8 @@ export default function App() {
       {[...Array(15)].map((_, i) => (
         <motion.div
           key={i}
-          initial={{ 
-            x: Math.random() * 100 + "%", 
+          initial={{
+            x: Math.random() * 100 + "%",
             y: Math.random() * 100 + "%",
             opacity: 0,
             rotate: 0
@@ -60,8 +62,10 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-200 selection:bg-brand-primary selection:text-slate-950 overflow-x-hidden pb-24 md:pb-0">
+      <Analytics />
+      <SpeedInsights />
       <NavBar />
-      
+
       <main className="relative">
         {/* Global Background Particles for eye-catching effect */}
         {backgroundParticles}
@@ -69,7 +73,7 @@ export default function App() {
         <div ref={heroRef} className="relative z-10">
           <HeroSection />
         </div>
-        
+
         <Suspense fallback={<SectionLoader />}>
           <div className="relative z-10">
             <DepartmentsSection />
@@ -93,17 +97,17 @@ export default function App() {
               </motion.div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <FeatureCard 
+                <FeatureCard
                   icon={<ShieldCheck size={32} />}
                   title="Genuine Products"
                   description="We source directly from authorized distributors to ensure 100% authenticity."
                 />
-                <FeatureCard 
+                <FeatureCard
                   icon={<Truck size={32} />}
                   title="Rapid Home Delivery"
                   description="Prompt delivery service across Kochi to ensure you never miss a dose."
                 />
-                <FeatureCard 
+                <FeatureCard
                   icon={<Clock size={32} />}
                   title="Extended Hours"
                   description="Open late to serve your emergencies and late-night medical requirements."
@@ -167,17 +171,17 @@ export default function App() {
                 Our specialized pharmaceutical care and delivery team are here for you Mon – Sat · 8 AM – 10 PM. Reach out via WhatsApp or call us directly.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <motion.a 
+                <motion.a
                   whileHover={{ y: -5 }}
-                  href="https://wa.me/919496358682" 
+                  href="https://wa.me/919496358682"
                   target="_blank"
                   className="bg-[#25D366] hover:bg-[#20bd5a] text-slate-950 px-12 py-5 rounded-2xl font-black text-xl shadow-2xl shadow-[#25D366]/20 transition-all uppercase tracking-widest"
                 >
                   WhatsApp Us
                 </motion.a>
-                <motion.a 
+                <motion.a
                   whileHover={{ y: -5 }}
-                  href="tel:+919496358682" 
+                  href="tel:+919496358682"
                   className="bg-white hover:bg-slate-100 text-slate-950 px-12 py-5 rounded-2xl font-black text-xl shadow-2xl transition-all uppercase tracking-widest"
                 >
                   Call Support
@@ -250,11 +254,11 @@ export default function App() {
               </ul>
             </div>
           </div>
-          
+
           <div className="pt-10 border-t border-slate-800/50 flex flex-col md:flex-row justify-between items-center gap-6">
             <div className="flex flex-col gap-1 items-center md:items-start text-xs text-slate-400 font-bold uppercase tracking-widest text-center md:text-left">
-               <span>&copy; {new Date().getFullYear()} KOLATH MEDICALS</span>
-               <span className="text-brand-primary">1st ISO Certified Pharmacy in Kerala • License: 21/443/KL/2021</span>
+              <span>&copy; {new Date().getFullYear()} KOLATH MEDICALS</span>
+              <span className="text-brand-primary">1st ISO Certified Pharmacy in Kerala • License: 21/443/KL/2021</span>
             </div>
           </div>
         </div>
@@ -285,8 +289,8 @@ function FeatureCard({ icon, title, description }: { icon: React.ReactNode; titl
 function FooterLink({ children, href = "#" }: { children: React.ReactNode; href?: string }) {
   return (
     <li>
-      <a 
-        href={href} 
+      <a
+        href={href}
         className="text-slate-400 text-sm font-bold uppercase tracking-widest hover:text-brand-primary transition-all duration-300 flex items-center group"
       >
         <span className="w-0 group-hover:w-4 h-0.5 bg-brand-primary mr-0 group-hover:mr-2 transition-all duration-300" aria-hidden="true" />
@@ -298,8 +302,8 @@ function FooterLink({ children, href = "#" }: { children: React.ReactNode; href?
 
 function SocialIcon({ icon, label }: { icon: React.ReactNode; label: string }) {
   return (
-    <a 
-      href="#" 
+    <a
+      href="#"
       className="w-12 h-12 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:bg-brand-primary hover:text-slate-950 hover:-translate-y-1 transition-all duration-300 shadow-lg"
       aria-label={label}
     >
@@ -312,30 +316,30 @@ function AnimatedLogo3D() {
   return (
     <div className="relative group" style={{ perspective: "1200px" }}>
       <motion.div
-        animate={{ 
+        animate={{
           rotateY: [0, 360],
           rotateX: [5, -5, 5],
         }}
-        transition={{ 
-          duration: 3, 
-          repeat: Infinity, 
-          ease: "linear" 
+        transition={{
+          duration: 3,
+          repeat: Infinity,
+          ease: "linear"
         }}
         style={{ transformStyle: "preserve-3d" }}
         className="w-40 h-40 relative"
       >
         {/* Front Face - The "K" */}
-        <div 
+        <div
           className="absolute inset-0 bg-brand-primary rounded-[32px] flex items-center justify-center text-slate-950 text-7xl font-display font-black shadow-[0_0_40px_rgba(16,185,129,0.4)]"
           style={{ backfaceVisibility: "hidden" }}
         >
           K
         </div>
-        
+
         {/* Back Face - The Medical Plus */}
-        <div 
+        <div
           className="absolute inset-0 bg-brand-primary rounded-[32px] flex items-center justify-center text-slate-950 text-7xl font-display font-black shadow-[0_0_40px_rgba(16,185,129,0.4)]"
-          style={{ 
+          style={{
             backfaceVisibility: "hidden",
             transform: "rotateY(180deg)"
           }}
@@ -355,9 +359,9 @@ function AnimatedLogo3D() {
           />
         ))}
       </motion.div>
-      
+
       {/* Floating shadow beneath */}
-      <motion.div 
+      <motion.div
         animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }}
         transition={{ duration: 1.5, repeat: Infinity }}
         className="absolute -bottom-16 left-1/2 -translate-x-1/2 w-32 h-6 bg-brand-primary/20 blur-xl rounded-full"

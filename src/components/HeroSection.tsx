@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "motion/react";
-import { Star, Phone, ShieldCheck } from "lucide-react";
+import { Star, Phone, ShieldCheck, Map } from "lucide-react";
 import { LeadForm } from "./LeadForm";
 
 import { MedicalBackground3D } from "./MedicalBackground3D";
@@ -47,8 +47,10 @@ export function HeroSection() {
               </h1>
               
               <div className="space-y-8">
-                <p className="text-xl lg:text-2xl text-slate-400 max-w-2xl leading-relaxed font-sans italic">
-                  Authorized pharmaceuticals, specialized medical equipment, and doorstep delivery with <span className="text-white font-bold not-italic">Flat 15-17% Discounts</span> daily.
+                <p className="text-base sm:text-xl lg:text-2xl text-slate-400 max-w-2xl leading-relaxed font-sans italic">
+                  Authorized pharmaceuticals, specialized medical equipment, and doorstep delivery with{" "}
+                  <span className="text-white font-semibold italic whitespace-nowrap">Flat 15-17% Discounts</span>{" "}
+                  daily.
                 </p>
                 
                 <motion.a 
@@ -78,7 +80,7 @@ export function HeroSection() {
                 href="tel:+919496358682"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-brand-primary text-slate-950 font-black text-sm uppercase tracking-widest shadow-xl shadow-brand-primary/20 group"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-brand-primary text-slate-950 font-black text-sm uppercase tracking-widest shadow-xl shadow-brand-primary/20 group w-full sm:w-auto"
               >
                 <Phone size={18} className="group-hover:rotate-12 transition-transform" />
                 Call Now
@@ -87,8 +89,9 @@ export function HeroSection() {
               <motion.a 
                 href="#location"
                 whileHover={{ scale: 1.02 }}
-                className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-white/5 border border-white/10 text-white font-black text-sm uppercase tracking-widest hover:bg-white/10 transition-colors"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-2xl bg-white/5 border border-white/10 text-white font-black text-sm uppercase tracking-widest hover:bg-white/10 transition-colors group w-full sm:w-auto"
               >
+                <Map size={18} className="group-hover:scale-110 transition-transform" />
                 View Map
               </motion.a>
             </div>

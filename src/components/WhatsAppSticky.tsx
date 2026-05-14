@@ -1,6 +1,6 @@
 import { Phone } from "lucide-react";
 import { motion } from "motion/react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 /* ── Section colour maps ───────────────────────────────────────────
    Bar bg shifts between slate-950 (darker) ↔ slate-900 (slightly lighter).
@@ -31,64 +31,66 @@ const BORDER_COLORS: Record<string, string> = {
 
 // Call Now button background
 const CALL_COLORS: Record<string, string> = {
-  hero:        "#10b981",   // emerald-500  – bright on slate-950
-  departments: "#34d399",   // emerald-400  – lighter for slate-900 bg
+  hero:        "#10b981",   // emerald-500
+  departments: "#34d399",   // emerald-400
   features:    "#10b981",
   about:       "#34d399",
   contact:     "#10b981",
-  location:    "#059669",   // emerald-600  – deeper on the map overlay
+  location:    "#059669",   // emerald-600
   footer:      "#10b981",
 };
 
 // WhatsApp button background
 const WA_COLORS: Record<string, string> = {
   hero:        "#25D366",   // WhatsApp brand
-  departments: "#4ade80",   // green-400  – brighter pop on slate-900
+  departments: "#4ade80",   // green-400
   features:    "#25D366",
   about:       "#4ade80",
   contact:     "#25D366",
-  location:    "#16a34a",   // green-600  – deeper on location bg
+  location:    "#16a34a",   // green-600
   footer:      "#25D366",
 };
 
 function useActiveSection() {
   const [active, setActive] = useState("hero");
+  const lastActive = useRef("hero");
 
   useEffect(() => {
-    // Map real section ids + virtual ones to keys in our color map
     const sectionMap: Record<string, string> = {
-      // real ids in the DOM
       departments: "departments",
       about:       "about",
       contact:     "contact",
       location:    "location",
     };
 
-    const heroEl    = document.querySelector("section.bg-slate-950:first-of-type");
-    const featureEl = document.querySelector("section.bg-slate-950.py-32");
-
     const observers: IntersectionObserver[] = [];
+
+    const handleIntersect = (key: string) => (entries: IntersectionObserverEntry[]) => {
+      const [entry] = entries;
+      if (entry.isIntersecting && lastActive.current !== key) {
+        lastActive.current = key;
+        setActive(key);
+      }
+    };
 
     const observe = (el: Element | null, key: string) => {
       if (!el) return;
-      const obs = new IntersectionObserver(
-        ([entry]) => { if (entry.isIntersecting) setActive(key); },
-        { rootMargin: "0px 0px -60% 0px", threshold: 0 }
-      );
+      const obs = new IntersectionObserver(handleIntersect(key), { 
+        rootMargin: "-20% 0px -60% 0px", 
+        threshold: 0 
+      });
       obs.observe(el);
       observers.push(obs);
     };
 
-    observe(heroEl, "hero");
-    observe(featureEl, "features");
+    observe(document.querySelector("section.bg-slate-950:first-of-type"), "hero");
+    observe(document.querySelector("section.bg-slate-950.py-32"), "features");
 
     Object.entries(sectionMap).forEach(([id, key]) => {
       observe(document.getElementById(id), key);
     });
 
-    // Footer
-    const footerEl = document.querySelector("footer");
-    observe(footerEl, "footer");
+    observe(document.querySelector("footer"), "footer");
 
     return () => observers.forEach((o) => o.disconnect());
   }, []);
@@ -136,31 +138,22 @@ export function WhatsAppSticky() {
         initial="hidden"
         animate="visible"
         exit="exit"
-        // Animate the background + border color smoothly on section change
         style={{ backgroundColor: bgColor, borderTopColor: bdColor }}
-        transition={{ backgroundColor: { duration: 0.5, ease: "easeInOut" }, borderTopColor: { duration: 0.5, ease: "easeInOut" } }}
-        className="md:hidden fixed bottom-0 left-0 right-0 z-50 flex gap-3 p-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] backdrop-blur-lg border-t"
+        transition={{ backgroundColor: { duration: 0.6 }, borderTopColor: { duration: 0.6 } }}
+        className="md:hidden fixed bottom-0 left-0 right-0 z-50 flex gap-3 p-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))] backdrop-blur-lg border-t will-change-transform"
       >
         {/* Call button */}
         <motion.a
           href="tel:+919496358682"
           variants={btnVariants}
-          whileHover={{ scale: 1.03, boxShadow: "0 0 24px rgba(16,185,129,0.45)" }}
-          whileTap={{ scale: 0.93 }}
+          whileTap={{ scale: 0.95 }}
           animate={{ backgroundColor: callColor }}
-          transition={{ type: "spring", stiffness: 400, damping: 18, backgroundColor: { duration: 0.5, ease: "easeInOut" } }}
-          style={{ backgroundColor: callColor }}
+          transition={{ backgroundColor: { duration: 0.6 } }}
           className="flex-1 inline-flex items-center justify-center gap-2.5 py-4 rounded-2xl text-slate-950 font-black text-sm uppercase tracking-widest shadow-lg relative overflow-hidden group"
           aria-label="Call Now - Call Kolath Medicals support at +91 9496358682"
         >
           <span className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none" />
-          <motion.span
-            animate={{ rotate: [0, 12, -12, 0] }}
-            transition={{ duration: 1.8, repeat: Infinity, repeatDelay: 2.5, ease: "easeInOut" }}
-            className="shrink-0"
-          >
-            <Phone size={18} />
-          </motion.span>
+          <Phone size={18} className="shrink-0" />
           Call Now
         </motion.a>
 
@@ -170,22 +163,14 @@ export function WhatsAppSticky() {
           target="_blank"
           rel="noopener noreferrer"
           variants={btnVariants}
-          whileHover={{ scale: 1.03, boxShadow: "0 0 24px rgba(37,211,102,0.45)" }}
-          whileTap={{ scale: 0.93 }}
+          whileTap={{ scale: 0.95 }}
           animate={{ backgroundColor: waColor }}
-          transition={{ type: "spring", stiffness: 400, damping: 18, backgroundColor: { duration: 0.5, ease: "easeInOut" } }}
-          style={{ backgroundColor: waColor }}
+          transition={{ backgroundColor: { duration: 0.6 } }}
           className="flex-1 inline-flex items-center justify-center gap-2.5 py-4 rounded-2xl text-slate-950 font-black text-sm uppercase tracking-widest shadow-lg relative overflow-hidden group"
           aria-label="WhatsApp - Order medicines via WhatsApp"
         >
           <span className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500 bg-gradient-to-r from-transparent via-white/20 to-transparent pointer-events-none" />
-          <motion.span
-            animate={{ scale: [1, 1.18, 1] }}
-            transition={{ duration: 1.6, repeat: Infinity, repeatDelay: 3, ease: "easeInOut" }}
-            className="shrink-0"
-          >
-            <WhatsAppIcon size={18} />
-          </motion.span>
+          <WhatsAppIcon size={18} className="shrink-0" />
           WhatsApp
         </motion.a>
       </motion.div>
@@ -211,8 +196,6 @@ export function WhatsAppSticky() {
           className="w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center shadow-2xl shadow-[#25D366]/30 text-white relative overflow-hidden"
           aria-label="WhatsApp - Contact on WhatsApp"
         >
-          <motion.span animate={{ scale: [1, 1.6], opacity: [0.5, 0] }} transition={{ duration: 1.8, repeat: Infinity, ease: "easeOut" }} className="absolute inset-0 rounded-full bg-[#25D366]" />
-          <motion.span animate={{ scale: [1, 1.8], opacity: [0.3, 0] }} transition={{ duration: 1.8, repeat: Infinity, ease: "easeOut", delay: 0.4 }} className="absolute inset-0 rounded-full bg-[#25D366]" />
           <WhatsAppIcon size={32} />
         </motion.a>
       </motion.div>

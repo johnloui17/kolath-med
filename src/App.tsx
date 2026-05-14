@@ -25,41 +25,48 @@ const SectionLoader = () => (
 );
 
 export default function App() {
+  const [isMobile, setIsMobile] = React.useState(false);
   const heroRef = useRef(null);
   const isHeroInView = useInView(heroRef, {
     margin: "-100px 0px 0px 0px",
   });
 
+  React.useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   const backgroundParticles = useMemo(() => (
     <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-      {[...Array(15)].map((_, i) => (
+      {[...Array(isMobile ? 8 : 15)].map((_, i) => (
         <motion.div
           key={i}
-          initial={{
-            x: Math.random() * 100 + "%",
+          initial={{ 
+            x: Math.random() * 100 + "%", 
             y: Math.random() * 100 + "%",
             opacity: 0,
             rotate: 0
           }}
           animate={{
             y: ["0%", "100%"],
-            opacity: [0, 0.2, 0],
+            opacity: [0, 0.15, 0],
             rotate: [0, 360]
           }}
           transition={{
-            duration: 20 + Math.random() * 30,
+            duration: 25 + Math.random() * 30,
             repeat: Infinity,
             ease: "linear",
             delay: Math.random() * 20,
           }}
           className="absolute text-brand-primary"
         >
-          <PlusIcon className="w-4 h-4 opacity-30" />
+          <PlusIcon className="w-4 h-4 opacity-20" />
         </motion.div>
       ))}
     </div>
-  ), []);
-
+  ), [isMobile]);
   return (
     <div className="min-h-screen bg-slate-950 text-slate-200 selection:bg-brand-primary selection:text-slate-950 overflow-x-hidden pb-24 md:pb-0">
       <Analytics />

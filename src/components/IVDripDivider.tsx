@@ -1,15 +1,26 @@
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform, useSpring } from "motion/react";
 
 export function IVDripDivider() {
   const ref = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
   });
 
-  const smooth = useSpring(scrollYProgress, { stiffness: 60, damping: 20 });
+  const smooth = useSpring(scrollYProgress, { 
+    stiffness: isMobile ? 40 : 60, 
+    damping: isMobile ? 25 : 20 
+  });
 
   // Tube grows as user scrolls
   const pathLength = useTransform(smooth, [0.05, 0.82], [0, 1]);
@@ -19,7 +30,7 @@ export function IVDripDivider() {
   const liquidHeight = useTransform(smooth, [0, 0.75], [76, 48]);
 
   // Glow behind bag
-  const glowOpacity = useTransform(smooth, [0, 0.4, 0.9], [0, 0.55, 0.1]);
+  const glowOpacity = useTransform(smooth, [0, 0.4, 0.9], [0, 0.5, 0.1]);
 
   return (
     <div
@@ -30,10 +41,10 @@ export function IVDripDivider() {
         background: "linear-gradient(to bottom, rgba(15,23,42,0.5) 0%, rgba(2,6,23,1) 100%)",
       }}
     >
-      {/* Ambient glow */}
+      {/* Ambient glow - Reduced blur on mobile */}
       <motion.div
         style={{ opacity: glowOpacity }}
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-48 rounded-full blur-[80px] bg-emerald-500/20 pointer-events-none"
+        className="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-48 rounded-full blur-[60px] md:blur-[80px] bg-emerald-500/10 md:bg-emerald-500/20 pointer-events-none"
       />
 
       <svg
@@ -53,13 +64,15 @@ export function IVDripDivider() {
             <stop offset="70%" stopColor="#10b981" stopOpacity="0.5" />
             <stop offset="100%" stopColor="#10b981" stopOpacity="0.15" />
           </linearGradient>
-          <filter id="ivGlow">
-            <feGaussianBlur stdDeviation="2.5" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
+          {!isMobile && (
+            <filter id="ivGlow">
+              <feGaussianBlur stdDeviation="2.5" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          )}
         </defs>
 
         {/* ── Hook ── */}
@@ -72,7 +85,7 @@ export function IVDripDivider() {
           stroke="#10b981" strokeWidth="1.5" strokeOpacity="0.5"
         />
         {/* Shine */}
-        <rect x="17" y="20" width="28" height="92" rx="10" fill="rgba(255,255,255,0.025)" />
+        <rect x="17" y="20" width="28" height="92" rx="10" fill="rgba(255,255,255,0.02)" />
 
         {/* Liquid — drains as scroll progresses */}
         <motion.rect
@@ -99,22 +112,22 @@ export function IVDripDivider() {
           stroke="#10b981" strokeWidth="1.2" strokeOpacity="0.45"
         />
 
-        {/* Fast liquid drops inside drip chamber — 5 staggered drops */}
-        {[0, 0.18, 0.36, 0.54, 0.72].map((delay, i) => (
+        {/* Fast liquid drops - Reduced count on mobile */}
+        {(isMobile ? [0, 0.3, 0.6] : [0, 0.18, 0.36, 0.54, 0.72]).map((delay, i) => (
           <motion.ellipse
             key={i}
             cx="60"
             rx={i % 2 === 0 ? 2.8 : 2.2}
             ry={i % 2 === 0 ? 4.5 : 3.5}
             fill="#10b981"
-            filter="url(#ivGlow)"
+            filter={isMobile ? undefined : "url(#ivGlow)"}
             animate={{
               cy:      [143, 174],
               opacity: [0, 1, 1, 0],
               scaleY:  [0.5, 1.1, 1.3, 0.8],
             }}
             transition={{
-              duration: 0.9,
+              duration: 1,
               repeat: Infinity,
               ease: "easeIn",
               delay,
@@ -141,7 +154,7 @@ export function IVDripDivider() {
           strokeLinecap="round"
           fill="none"
           style={{ pathLength }}
-          filter="url(#ivGlow)"
+          filter={isMobile ? undefined : "url(#ivGlow)"}
         />
       </svg>
     </div>
